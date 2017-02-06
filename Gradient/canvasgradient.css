@@ -1,0 +1,21 @@
+*
+{
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#myCanvas
+{
+   border: 2px solid lightgrey;
+   margin: 0px auto;
+   margin-top: 100px;
+   display: block;
+}
+
+button
+{
+   display: block;
+   margin: 20px;
+   margin: 0px auto;
+   margin-top: 20px;
+   padding: 1em;
+}

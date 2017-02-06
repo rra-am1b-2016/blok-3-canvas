@@ -31,9 +31,9 @@ document.getElementById("btn").onclick = function () {
    ctx.closePath();
 
    ctx.beginPath();   
-   ctx.strokeStyle = "blue";
-   ctx.moveTo(0, 5)
-   ctx.lineTo(600, 5);
+   ctx.strokeStyle = "grey";
+   ctx.moveTo(5, 80)
+   ctx.lineTo(550, 80);
    ctx.stroke();
    ctx.closePath();
 
