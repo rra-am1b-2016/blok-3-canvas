@@ -1,4 +1,4 @@
-// Maak een canvas object om te bewerken
+// Maak een canvas object om te bewerke
 var canvas = document.getElementById("myCanvas");
 
 var context = canvas.getContext("2d");
