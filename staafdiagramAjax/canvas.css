@@ -6,8 +6,6 @@
 
 #myCanvas
 {
-   width: 400px;
-   height: 300px;
    border: 2px solid lightgrey;
    border-radius: 3px;
    background-color: #eeeeee;

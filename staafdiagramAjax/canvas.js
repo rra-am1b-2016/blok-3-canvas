@@ -29,10 +29,15 @@ var data = [{"id": 1,
              "name": "Arie van Ravenzwaai",
              "numberOfContacts": 120}];
 
+// Sorteer je array op veld numberOfContacts
+data.sort(function (a, b) {
+   return a.numberOfContacts - b.numberOfContacts;
+});
+
 // De lengte van het array data kun je opvragen met de property length
 var arrayLength = data.length;
 
-alert(data[9].numberOfContacts);
+//alert(data[9].numberOfContacts);
 
 // Plak een handvat op het canvas
 var canvas = document.getElementById("myCanvas");
@@ -40,17 +45,57 @@ var canvas = document.getElementById("myCanvas");
 // Maak een context object waarmee je objecten kunt maken
 var ctx = canvas.getContext("2d");
 
-// Met een for-loop maak ik nu rectangles
-for ( var i = 0; i < 14; i++)
-{
-   //alert("De waarde van i=" + i);
-   var r, g, b;
-   r = Math.floor(Math.random() * 255);
-   g = Math.floor(Math.random() * 255);
-   b = Math.floor(Math.random() * 255);
-   var color = "rgb(" + r + ", " + g + ", " + b + ")";
-   ctx.fillStyle = color;   
-   ctx.fillRect(10 + i * 20, 5 + i * 10, 10, 140 - i * 10);
-   
+function drawGraph () {
+
+   // Teken de staafdiagrammen
+   for ( var i = 0; i < arrayLength; i++)
+   {
+      //alert("De waarde van i=" + i);
+      var r, g, b;
+      r = Math.floor(Math.random() * 255);
+      g = Math.floor(Math.random() * 255);
+      b = Math.floor(Math.random() * 255);
+      var color = "rgb(" + r + ", " + g + ", " + b + ")";
+      ctx.fillStyle = color;   
+      ctx.fillRect(45 + i * 30, 370, 10, -1 * data[i].numberOfContacts);
+      
+   }
+
+   ctx.beginPath();
+   // x-as tekenen 
+      ctx.strokeStyle = "grey";
+      ctx.lineWidth = 3;
+      ctx.moveTo(15, 370 )
+      ctx.lineTo(550, 370);
+      ctx.stroke();
+   ctx.closePath();
+
+
+   ctx.beginPath();
+   // y-as tekenen
+      ctx.strokeStyle = "grey";
+      ctx.moveTo(35, 30 )
+      ctx.lineTo(35, 380);
+      ctx.lineWidth = 3;
+      ctx.stroke();
+   ctx.closePath();
+
+   // Schrijf de text langs de x-as
+   ctx.fillStyle = "#090909";
+   ctx.font = "14px Trebuchet MS";
+   ctx.fillText("Leerlingen ->", 400, 390);
+
+   // Schrijf de text langs de y-as
+   ctx.save();
+   ctx.translate(20, 200);
+   ctx.rotate(-Math.PI/2);
+   ctx.fillStyle = "#090909";
+   ctx.font = "14px Trebuchet MS";
+   ctx.fillText("Aantal geschikte bedrijven ->", 0, 0);
+   ctx.restore();
 }
+
+drawGraph();
+
+
 
