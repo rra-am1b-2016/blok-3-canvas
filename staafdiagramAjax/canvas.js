@@ -8,17 +8,18 @@ xmlHttp.onreadystatechange = function () {
    {
       //alert(xmlHttp.responseText);
       data = JSON.parse(xmlHttp.responseText);
+      data.sort(function (a, b) {
+         return a.numberOfContacts - b.numberOfContacts;
+      });
       drawGraph();
    }
 
 }
 
-
+fetch_data();
 
 // Sorteer je array op veld numberOfContacts
-data.sort(function (a, b) {
-   return a.numberOfContacts - b.numberOfContacts;
-});
+
 
 
 
@@ -81,13 +82,15 @@ function drawGraph () {
    ctx.restore();
 }
 
-setInterval(function () { 
+setInterval(fetch_data, 1000);
+
+function fetch_data () {
    // Geef aan waar de data opgehaald kan worden
    xmlHttp.open("GET", "http://localhost/2016-2017/am1b/Blok%203/Web/canvas/staafdiagramAjax/data.php", true);
 
    // Haal nu de data op
    xmlHttp.send();   
-}, 1000);
+}
 
 
 
