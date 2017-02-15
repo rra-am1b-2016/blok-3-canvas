@@ -93,4 +93,7 @@ function fetch_data () {
 }
 
 
+// Voeg een event to aan het canvas.
+
+
 
