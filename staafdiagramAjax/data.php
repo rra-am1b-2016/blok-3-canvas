@@ -11,7 +11,7 @@ $query = "SELECT * FROM `users`";
 
 $resource = mysqli_query($conn, $query);
 
-$resultArray = mysqli_fetch_array($resource, MYSQLI_ASSOC);
+$resultArray = mysqli_fetch_all($resource, MYSQLI_ASSOC);
 
 echo json_encode($resultArray);
 

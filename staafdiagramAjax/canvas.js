@@ -1,43 +1,26 @@
-var data = [{"id": 1,
-             "name": "Arjan de Ruijter",
-             "numberOfContacts": 100},
-            {"id": 2,
-             "name": "Bert de Vries",
-             "numberOfContacts": 10},
-            {"id": 3,
-             "name": "Simeon Breedveld",
-             "numberOfContacts": 120},
-            {"id": 4,
-             "name": "Anke Koerts",
-             "numberOfContacts": 160},
-            {"id": 5,
-             "name": "Dinand Woest",
-             "numberOfContacts": 320},
-            {"id": 6,
-             "name": "Serre van Amersfoort",
-             "numberOfContacts": 234},
-            {"id": 7,
-             "name": "Daan de Bok",
-             "numberOfContacts": 67},
-            {"id": 8,
-             "name": "Wilco Dunner",
-             "numberOfContacts": 280},
-            {"id": 9,
-             "name": "Bas de Bakker",
-             "numberOfContacts": 330},
-             {"id": 10,
-             "name": "Arie van Ravenzwaai",
-             "numberOfContacts": 120}];
+var data = [];
+
+// Maak een XMLHttpRequest() object
+var xmlHttp = new XMLHttpRequest();
+
+xmlHttp.onreadystatechange = function () {
+   if ( xmlHttp.status == 200 && xmlHttp.readyState == 4)
+   {
+      //alert(xmlHttp.responseText);
+      data = JSON.parse(xmlHttp.responseText);
+      drawGraph();
+   }
+
+}
+
+
 
 // Sorteer je array op veld numberOfContacts
 data.sort(function (a, b) {
    return a.numberOfContacts - b.numberOfContacts;
 });
 
-// De lengte van het array data kun je opvragen met de property length
-var arrayLength = data.length;
 
-//alert(data[9].numberOfContacts);
 
 // Plak een handvat op het canvas
 var canvas = document.getElementById("myCanvas");
@@ -46,6 +29,10 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
 function drawGraph () {
+   // De lengte van het array data kun je opvragen met de property length
+   var arrayLength = data.length;
+
+   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
    // Teken de staafdiagrammen
    for ( var i = 0; i < arrayLength; i++)
@@ -57,8 +44,7 @@ function drawGraph () {
       b = Math.floor(Math.random() * 255);
       var color = "rgb(" + r + ", " + g + ", " + b + ")";
       ctx.fillStyle = color;   
-      ctx.fillRect(45 + i * 30, 370, 10, -1 * data[i].numberOfContacts);
-      
+      ctx.fillRect(45 + i * 30, 370, 10, -1 * data[i].numberOfContacts);      
    }
 
    ctx.beginPath();
@@ -95,7 +81,13 @@ function drawGraph () {
    ctx.restore();
 }
 
-drawGraph();
+setInterval(function () { 
+   // Geef aan waar de data opgehaald kan worden
+   xmlHttp.open("GET", "http://localhost/2016-2017/am1b/Blok%203/Web/canvas/staafdiagramAjax/data.php", true);
+
+   // Haal nu de data op
+   xmlHttp.send();   
+}, 1000);
 
 
 
