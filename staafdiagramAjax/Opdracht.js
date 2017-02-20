@@ -24,7 +24,11 @@
       https://www.w3schools.com/howto/howto_css_modals.asp
 
    9. Maak een modal.js en modal.css bestand en voeg deze toe aan je project. Plaats de code van 
-   https://www.w3schools.com/howto/howto_css_modals.asp in deze bestanden zodat we het modal scherm
-     tevoorschijn zien komen na het klikken op de button.
+      https://www.w3schools.com/howto/howto_css_modals.asp in deze bestanden zodat we het modal scherm
+      tevoorschijn zien komen na het klikken op de button.
+   
+   10. Maak een js function die de (x,y) waarde kan vinden van je mouse op je canvas.
+       http://stackoverflow.com/questions/1114465/getting-mouse-location-in-canvas
+
 
 */
