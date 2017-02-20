@@ -37,8 +37,6 @@ data.sort(function (a, b) {
 // De lengte van het array data kun je opvragen met de property length
 var arrayLength = data.length;
 
-//alert(data[9].numberOfContacts);
-
 // Plak een handvat op het canvas
 var canvas = document.getElementById("myCanvas");
 
@@ -60,7 +58,7 @@ function drawGraph () {
       ctx.fillStyle = color;
       var x = 45 + i * 30;
       var y = 370;
-      var dx = 10; 
+      var dx = 20; 
       var dy = -1 * data[i].numberOfContacts;
       ctx.fillRect(x, y, dx, dy);
       data[i].coordinates = {"x": x,
@@ -89,18 +87,33 @@ function drawGraph () {
           mousePos.x < (data[i].coordinates.x + data[i].coordinates.dx) && 
           mousePos.y < data[i].coordinates.y && 
           mousePos.y > (data[i].coordinates.y + data[i].coordinates.dy)) {
-            //alert("Mijn naam is: " + data[i].name);
-            //var node = document.createElement("p");
-            //var textNode = document.createTextNode("id: " + data[i].id);
-            //var textNode = document.createTextNode("Naam: " + data[i].name);
-            //var textNode = document.createTextNode("Aantal Contacten: " + data[i].numberOfContacts);
-            //node.appendChild(textNode);
-            //document.getElementById("infoText").appendChild(node);
+            
             modal.style.display = "block";
             document.getElementById("test").innerHTML = "id: " + data[i].id + "<br>" +
                                                         "Naam: " + data[i].name + "<br>" +
                                                         "Aantal Contacten: " + data[i].numberOfContacts;
-            console.log(document.getElementById("test").innerHTML);
+
+            var parent = document.getElementsByClassName("modal-content")[0];
+            var child = document.getElementsByTagName("img")[0];
+            var pTag = document.getElementsByTagName("p")[0];
+            parent.removeChild(child);
+            image = document.createElement("img");
+            var ulist = document.createElement("ul");
+            var text = [document.createTextNode("Leerlingnummer: " + data[i].id),
+                        document.createTextNode("Naam: " + data[i].name),
+                        document.createTextNode("Aantal Contacten: " + data[i].numberOfContacts)];
+            
+            for (var j = 0; j < text.length; j++)
+            {
+              ulist.appendChild(text[j]);
+            }
+                        
+            image.setAttribute("src", "./images/" + data[i].id + ".jpg");
+            
+            parent.insertBefore(image, pTag);
+            //parent.appendChild(ulist);
+
+
             break;
       }      
       modal.style.display = "none"; 
@@ -149,26 +162,7 @@ var modal = document.getElementById('myModal');
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
 
-/* When the user clicks on the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-*/
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
 
 drawGraph();
 

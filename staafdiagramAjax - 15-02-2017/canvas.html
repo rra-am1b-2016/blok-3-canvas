@@ -4,23 +4,26 @@
    <meta charset="UTF-8">
    <title>Canvas</title>
    <link rel="stylesheet" href="./canvas.css">
+   <link rel="stylesheet" href="./overlay.css">
 </head>
 <body>
-   <div id="infoText">Hier komt info
+   <div id="infoText">
 
-   <!-- The Modal -->
-   <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-         <span class="close">&times;</span>
-         <p id="test">Info</p>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+         <!-- Modal content -->
+         <div class="modal-content">
+            <span class="close">&times;</span>
+            <img>
+            <p id="test">Info</p>
+         </div>
       </div>
-   </div>
 
-   <canvas id="myCanvas" width="600" height="400"></canvas>
+      <canvas id="myCanvas" width="600" height="400"></canvas>
    
-</div>
+   </div>
    
 </body>
 </html>
 <script src='./canvas.js'></script>
+<script src='./overlay.js'></script>

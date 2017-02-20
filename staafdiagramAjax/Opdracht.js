@@ -20,6 +20,11 @@
    7. Maak een script die de (x,y) positie van de mouse op het canvas kan berekenen. 
       Je kan gebruiken: http://stackoverflow.com/questions/1114465/getting-mouse-location-in-canvas
 
-   8. 
+   8. Ga naar w3schools.com. Gebruik het volgende voorbeeld voor het maken van een modal box
+      https://www.w3schools.com/howto/howto_css_modals.asp
+
+   9. Maak een modal.js en modal.css bestand en voeg deze toe aan je project. Plaats de code van 
+   https://www.w3schools.com/howto/howto_css_modals.asp in deze bestanden zodat we het modal scherm
+     tevoorschijn zien komen na het klikken op de button.
 
 */
