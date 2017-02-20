@@ -128,7 +128,8 @@ function getMousePos(canvas, evt) {
          {
                console.log("Mijn naam is: " + data[i].firstname);
                modal.style.display = "block";
-               
+               document.getElementById("image").setAttribute("src","./images/" + data[i].id + ".jpg");               
+               document.getElementById("image").setAttribute("alt", data[i].id + ".jpg");               
                document.getElementById("id").innerHTML = "ID: " + data[i].id;
                document.getElementById("firstname").innerHTML = "Naam: " + data[i].firstname;
                document.getElementById("numberOfContacts").innerHTML = "Aantal bedrijven: " + data[i].numberOfContacts;
