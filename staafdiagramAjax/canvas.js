@@ -129,6 +129,12 @@ function getMousePos(canvas, evt) {
                console.log("Mijn naam is: " + data[i].firstname);
                modal.style.display = "block";
                
+               var parent = document.getElementsByClassName("modal-content")[0];
+               var lastChild = parent.lastElementChild;
+               var pTag = document.createElement("p");
+               var text = document.createTextNode("Naam: " + data[i].firstname);
+               pTag.appendChild(text);
+               console.log(pTag);
                break;
          }
          modal.style.display = "none";
