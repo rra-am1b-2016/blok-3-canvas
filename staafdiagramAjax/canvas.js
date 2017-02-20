@@ -44,8 +44,18 @@ function drawGraph () {
       g = Math.floor(Math.random() * 255);
       b = Math.floor(Math.random() * 255);
       var color = "rgb(" + r + ", " + g + ", " + b + ")";
-      ctx.fillStyle = color;   
-      ctx.fillRect(45 + i * 30, 370, 10, -1 * data[i].numberOfContacts);      
+      ctx.fillStyle = color;
+      var x = 45 + i * 30;
+      var y = 370;
+      var dx = 10;
+      var dy = -1 * data[i].numberOfContacts
+
+      data[i].coordinates = {"x": x,
+                             "y": y,
+                             "dx": dx,
+                             "dy": dy };
+
+      ctx.fillRect(x, y, dx, dy);         
    }
 
    ctx.beginPath();
@@ -93,7 +103,19 @@ function fetch_data () {
 }
 
 
-// Voeg een event to aan het canvas.
+
+function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
+  }
+
+  canvas.addEventListener('mousemove', function(evt) {
+    var mousePos = getMousePos(canvas, evt);
+    console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
+  }, false);
 
 
 
