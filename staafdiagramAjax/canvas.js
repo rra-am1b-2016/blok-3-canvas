@@ -122,12 +122,16 @@ function getMousePos(canvas, evt) {
     for (var i = 0; i < data.length; i++)
     {
          if ( mousePos.x > data[i].coordinates.x &&
-               mousePos.x < data[i].coordinates.x + data[i].coordinates.dx &&
-               mousePos.y < data[i].coordinates.y &&
-               mousePos.y > data[i].coordinates.y + data[i].coordinates.dy)
+              mousePos.x < data[i].coordinates.x + data[i].coordinates.dx &&
+              mousePos.y < data[i].coordinates.y &&
+              mousePos.y > data[i].coordinates.y + data[i].coordinates.dy)
          {
                console.log("Mijn naam is: " + data[i].firstname);
+               modal.style.display = "block";
+               
+               break;
          }
+         modal.style.display = "none";
     }
 
   }, false);

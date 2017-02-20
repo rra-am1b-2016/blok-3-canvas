@@ -33,7 +33,12 @@
    11. Wanneer de muis over een rectangle heen beweegt moet de naam van die persoon naar de 
        console worden geschreven.
 
-   12.
+   12. Selecteer met js de div modal-content. Dit is het parent element.
+       Selecteer daarna de lastChild van dit parent element
+       Maak een p tag met createElement
+       maak een textNode met createTextNode
+       Zet de tekst in het p tag 
+       Plaats de p tag als laatste in het parent element
 
 
 */
