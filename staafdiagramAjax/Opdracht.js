@@ -30,5 +30,10 @@
    10. Maak een js function die de (x,y) waarde kan vinden van je mouse op je canvas.
        http://stackoverflow.com/questions/1114465/getting-mouse-location-in-canvas
 
+   11. Wanneer de muis over een rectangle heen beweegt moet de naam van die persoon naar de 
+       console worden geschreven.
+
+   12.
+
 
 */

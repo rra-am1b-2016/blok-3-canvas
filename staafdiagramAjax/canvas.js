@@ -8,9 +8,11 @@ xmlHttp.onreadystatechange = function () {
    {
       //alert(xmlHttp.responseText);
       data = JSON.parse(xmlHttp.responseText);
+      /*
       data.sort(function (a, b) {
          return a.numberOfContacts - b.numberOfContacts;
       });
+      */
       drawGraph();
    }
 
@@ -45,6 +47,7 @@ function drawGraph () {
       b = Math.floor(Math.random() * 255);
       var color = "rgb(" + r + ", " + g + ", " + b + ")";
       ctx.fillStyle = color;
+
       var x = 45 + i * 30;
       var y = 370;
       var dx = 10;
@@ -114,7 +117,19 @@ function getMousePos(canvas, evt) {
 
   canvas.addEventListener('mousemove', function(evt) {
     var mousePos = getMousePos(canvas, evt);
-    console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
+    //console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
+
+    for (var i = 0; i < data.length; i++)
+    {
+         if ( mousePos.x > data[i].coordinates.x &&
+               mousePos.x < data[i].coordinates.x + data[i].coordinates.dx &&
+               mousePos.y < data[i].coordinates.y &&
+               mousePos.y > data[i].coordinates.y + data[i].coordinates.dy)
+         {
+               console.log("Mijn naam is: " + data[i].firstname);
+         }
+    }
+
   }, false);
 
 
